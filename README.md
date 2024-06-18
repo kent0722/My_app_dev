@@ -132,3 +132,6 @@ API
         ・画像、動画のアップロード
         ・コメント
         ・プレビュー
+
+■ 画面遷移図
+figma:[text](https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=VYkpRVLDe0v4w5SX-1)
