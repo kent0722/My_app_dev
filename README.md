@@ -97,7 +97,6 @@ Gem
   ・acts_as_follower: フォロー機能の実装
   ・ransack: 検索機能
   ・stimulus-autocomplete: 検索補完機能の実装予定
-  ・gretel: パンくずの設定
   ・carrierwave: 画像、動画にアップロード
   ・image_processing: 画像のリサイズ
   ・streamio-ffmpeg: 動画の長さ、ファイルサイズの検証および変換
@@ -135,3 +134,6 @@ API
 
 ■ 画面遷移図
 figma:[text](https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=VYkpRVLDe0v4w5SX-1)
+
+■ ER図
+draw.io:[text](https://drive.google.com/file/d/1WmjND-yhE_E6vsLMml6eReQ2jVsVat8C/view?usp=sharing)
