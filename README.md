@@ -133,7 +133,7 @@ API
         ・プレビュー
 
 ■ 画面遷移図
-figma:[text](https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=7x1XMhkDci4FUDJo-1)RE
+figma:[text](https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=7x1XMhkDci4FUDJo-1)
 
 ■ ER図
 draw.io:[text](https://drive.google.com/file/d/1WmjND-yhE_E6vsLMml6eReQ2jVsVat8C/view?usp=sharing)
