@@ -68,14 +68,12 @@
     ・プロフィール機能(Xとyoutubeのアカウントを載せることできる)
     ・コンテンツ投稿機能(紹介したい楽器の画像や動画の投稿)
     ・いいね
-    ・お気に入り
     ・フォロー機能
     ・コメント機能
     ・マイページ機能 
     
   本リリース(仮)
     ・DM機能
-    ・ランキング機能
     ・お知らせ機能
     ・検索機能  ※マルチ検索・オートコンプリート 
 
@@ -134,4 +132,4 @@ API
         ・プレビュー
 
 ■ 画面遷移図
-figma:[text](https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=7x1XMhkDci4FUDJo-1)
+figma: https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=0RgWkQlGPASsANwF-1
