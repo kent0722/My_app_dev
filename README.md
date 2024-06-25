@@ -132,4 +132,4 @@ API
         ・プレビュー
 
 ■ 画面遷移図
-figma: https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=0RgWkQlGPASsANwF-1
+figma: https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=c4Wbcvk5EGSpltxG-1
