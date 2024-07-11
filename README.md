@@ -2,10 +2,10 @@
 
 # サービス名: GearNET
 
-# ＊＊サービス概要＊＊
+## **サービス概要**
   ギターやベースなど楽器を紹介し、同じ音楽好きの仲間を作ることを目的としたコミュニティーツールです。<br>
 
-# **このサービスへの思い・作りたい理由**
+## **このサービスへの思い・作りたい理由**
    私自身ギターやベースといった楽器が大好きで、日々演奏を楽しんでいます。<br>
    <br>
    そこで同じ楽器好きの仲間と交流し、情報を共有する場があれば楽しいと考えました。<br>
@@ -15,10 +15,10 @@
   「GearNET」は、そんな楽器好きが気軽に繋がれるツールになることを目指しています。<br>
 
 
-# **ユーザー層について**
+## **ユーザー層について**
   年齢に関係なく、楽器を愛するすべての人々を対象に提供できるもにしたいと思っています。<br>           
 
-# **サービスの利用イメージ**
+## **サービスの利用イメージ**
   利用方法
      ・ユーザー登録を行う。
      ・プロフィールページの設定。
@@ -74,7 +74,7 @@
 | データベース | Postgres |
 | 環境構築 | Docker |
 | 認証 | Sorcery / omniauth-google-oauth2 |
-| インフラ | Heroku |
+| インフラ | Heroku | Amazon S3 |
 | CSS | tailwind CSS |
 | その他 | Swiper |
 
@@ -111,9 +111,9 @@ API
         ・コメント
         ・プレビュー
 
-# **画面遷移図**
+## **画面遷移図**
 figma: https://www.figma.com/design/otAy1mzefGG2xHZME0yxub/My_app_dev?node-id=0-1&t=c4Wbcvk5EGSpltxG-1
 
-# **ER図**
+## **ER図**
 draw.io: https://drive.google.com/file/d/1WmjND-yhE_E6vsLMml6eReQ2jVsVat8C/view?usp=sharing
 
