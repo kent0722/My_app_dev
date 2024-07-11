@@ -82,10 +82,10 @@
   ・carrierwave: 画像、動画にアップロード <br>
   ・image_processing: 画像のリサイズ <br>
   ・streamio-ffmpeg: 動画の長さ、ファイルサイズの検証および変換 <br>
-  <!-- ・kaminari: ページネーションの実装<br> -->
   ・acts-as-taggable-on: タグ機能 <br>
   ・acts_as_followe：フォロー機能 <br>
   ・pundit: 権限管理 <br>
+  <!-- ・kaminari: ページネーションの実装 ※Sweperでの実装が難しい場合代用する <br> -->
 
 **API** <br>
   ・DM機能：ActionCableを使用して実装予定。<br>
