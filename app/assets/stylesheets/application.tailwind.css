@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 body {
-  background-color: #1d1d2b;
+  background-color: #171718;
+  background-image: url("haikei3.jpg");
+  background-size: cover;
+  height: calc(100vh - 134px);
+  position: relative;
+  background-position: center;
 }
+
+.top-text {
+  text-shadow: 4px 3px 5px black;
+}
+
 
