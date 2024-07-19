@@ -4,11 +4,11 @@
 
 body {
   background-color: #171718;
-  background-image: url("haikei3.jpg");
+  /* background-image: url("haikei3.jpg");
   background-size: cover;
   height: calc(100vh - 134px);
   position: relative;
-  background-position: center;
+  background-position: center; */
 }
 
 .top-text {
