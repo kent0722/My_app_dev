@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      redirect_to root_path, flash: { notice: '新規作成完了しました' }
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

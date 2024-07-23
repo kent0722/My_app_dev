@@ -4,11 +4,11 @@
       <h1 class="pt-8 text-gray-900 text-2xl font-semibold">ログイン</h1>
       <%= form_with(url: login_path) do |f| %>
 
-        <%= f.label :email, "Email" %>
-        <%= f.text_field :email, class: 'block w-72 rounded-md mb-2', placeholder: 'email' %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'block w-72 rounded-md mb-2', placeholder: 'メール' %>
 
-        <%= f.label :password, "Password" %>
-        <%= f.password_field :password, class: 'block w-72 rounded-md mb-6', placeholder: 'password' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'block w-72 rounded-md mb-6', placeholder: 'パスワード' %>
   
         <%= f.submit "ログイン", class: 'w-full h-12 mb-8 text-white bg-indigo-500 hover:bg-indigo-600 rounded-3xl' %>
 

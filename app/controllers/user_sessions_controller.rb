@@ -5,14 +5,15 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_to root_path
+      redirect_to root_path, flash: { success: 'ログインしました' }
     else
-      render :new
+      flash.now[:danger] = 'ログインに失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, flash: { danger: 'ログアウトしました'}
   end
 end

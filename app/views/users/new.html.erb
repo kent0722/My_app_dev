@@ -3,17 +3,36 @@
     <div class="flex flex-col items-center space-y-4 border-red-300">
       <h1 class="pt-8 text-gray-900 text-2xl font-semibold">ユーザー登録</h1>
       <%= form_with(model: @user, url: users_path, method: "post") do |f| %>
-        <%= f.label :name, "Name" %>
-        <%= f.text_field :name, class: 'block w-72 rounded-md mb-2', placeholder: 'name' %>
+        <div class="mb-2">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'block w-72 rounded-md', placeholder: 'ユーザーネーム' %>
+          <% @user.errors.where(:name).each do |name| %>
+            <p class="text-red-500"><%= name.full_message %></p>
+          <% end %>
+        </div>
+        <div class="mb-2">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'block w-72 rounded-md', placeholder: 'メール' %>
+          <% @user.errors.where(:email).each do |email| %>
+            <p class="text-red-500"><%= email.full_message %></p>
+          <% end %>
+        </div>
+        <div class="mb-2">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'block w-72 rounded-md', placeholder: 'パスワード' %>
+          <% @user.errors.where(:password).each do |password| %>
+            <p class="text-red-500"><%= password.full_message %></p>
+          <% end %>
+        </div>
+        <div class="mb-6">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'block w-72 rounded-md', placeholder: 'パスワード(確認用)' %>
+          <% @user.errors.where(:password_confirmation).each do |password_confirmation| %>
+            <p class="text-red-500"><%= password_confirmation.full_message %></p>
+          <% end %>
+        </div>
 
-        <%= f.label :email, "Email" %>
-        <%= f.text_field :email, class: 'block w-72 rounded-md mb-2', placeholder: 'email' %>
 
-        <%= f.label :password, "Password" %>
-        <%= f.password_field :password, class: 'block w-72 rounded-md mb-2', placeholder: 'password' %>
-
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'block w-72 rounded-md mb-6', placeholder: 'password_confirmation' %>
 
         <%= f.submit "登録する", class: 'w-full h-12 mb-8 text-white bg-indigo-500 hover:bg-indigo-600 rounded-3xl' %>
 
