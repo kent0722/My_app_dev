@@ -4,10 +4,10 @@ import Modal from "react-modal";
 Modal.setAppElement("#LoginModal");
 
 const LoginModal = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const openModal = () => setModalIsOpen(true);
-  const closeModal = () => setModalIsOpen(false);
+  const openClickModal = () => setShowModal(true);
+  const closeClickModal = () => setShowModal(false);
 
   const customStyles = {
     content: {
@@ -30,18 +30,19 @@ const LoginModal = () => {
 
 
   return (
-    <div className="text-base font-light hover:opacity-40">
-      <button onClick={openModal}>Log In</button>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Login Modalc">
+    <div className="text-lg hover:opacity-40">
+      <button onClick={openClickModal}>Log In</button>
+      <Modal isOpen={showModal} onRequestClose={closeClickModal} style={customStyles} contentLabel="LoginModal">
         <div className="container mx-auto text-gray-600">
           <div className="bg-gray-100 mx-auto">
             <div className="flex flex-col items-center space-y-4">
               <h1 className="pt-8 text-gray-900 text-2xl font-semibold">ログイン</h1>
               <form action="/login" method="post">
-                <label htmlFor="email">メール</label>
+                <label htmlFor="email">メールアドレス</label>
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="block w-72 rounded-md mb-2"
                   placeholder="メール"
                 />
@@ -49,6 +50,7 @@ const LoginModal = () => {
                 <input
                   type="Password"
                   id="Password"
+                  name="password"
                   className="block w-72 rounded-md mb-6"
                   placeholder="パスワード"
                 />
