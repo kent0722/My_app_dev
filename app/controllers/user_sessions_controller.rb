@@ -7,13 +7,12 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_to root_path, flash: { success: 'ログインしました' }
     else
-      flash.now[:danger] = 'ログインに失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, status: :see_other, flash: { danger: 'ログアウトしました'}
+    redirect_to root_path, status: :see_other
   end
 end

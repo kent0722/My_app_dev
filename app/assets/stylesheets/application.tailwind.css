@@ -6,7 +6,8 @@ body {
   /* background-color: #171718; */
   background-image: url("haikei3.jpg");
   background-size: cover;
-  height: calc(100vh - 134px);
+  background-attachment: fixed;
+  height: calc(100vh - 100px);
   position: relative;
   background-position: center;
 }
@@ -14,5 +15,3 @@ body {
 .top-text {
   text-shadow: 4px 3px 5px black;
 }
-
-
