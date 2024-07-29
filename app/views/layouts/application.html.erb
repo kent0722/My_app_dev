@@ -15,9 +15,14 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
-    <%= render 'shared/flash_messages' %>
-    <%= render 'shared/footer' %>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+      <%= render 'shared/flash_messages' %>
+    <% else %>
+      <%= render 'shared/header' %>
+      <%= render 'shared/flash_messages' %>
+      <%= render 'shared/footer' %>
+    <% end %>
     <%= yield %>
     <!-- Flowbite JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
