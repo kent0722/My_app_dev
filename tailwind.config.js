@@ -8,12 +8,19 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        slideInAndFadeOut: {
+          "0%": { opacity: 0, transform: "translate3d(0, -100%, 0)" },
+          "20%": { opacity: 1, transform: "translate3d(0, 0, 0)" },
+          "80%": { opacity: 1, transform: "translate3d(0, 0, 0)" },
+          "100%": { opacity: 0, transform: "translate3d(0, -100%, 0)" },
+        },
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
       },
       animation: {
+        slideInAndFadeOut: 'slideInAndFadeOut 3s ease-in-out forwards',
         fadeIn: 'fadeIn 0.5s ease-in-out',
       },
     },
