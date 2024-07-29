@@ -1,12 +1,12 @@
-<% flash.each do |key, value| %>
+<% flash.each do |key, msg| %>
   <% case key %>
   <% when "notice" %>
-    <div class="animate-flashFade fixed top-24 right-6 sm:translate-x-0 z-30 w-fit max-w-[90%] sm:max-w-1/2 py-4 px-6 flex justify-center items-center bg-white shadow-lg border border-line-100 rounded-[3px]">
-      <p class="text-base font-bold text-dark-blue-200 !leading-none"><%= value %></p>
+     <div class="fixed top-24 right-20 z-30 py-4 px-6 bg-teal-100 border-4 border-teal-400 text-teal-700 rounded-lg animate-slideInAndFadeOut">
+      <p class="text-base font-bold text-dark-blue-200 !leading-none"><%= msg %></p>
     </div>
   <% else "alert" %>
      <div class="fixed top-24 right-20 z-30 py-4 px-6 bg-red-100 border-4 border-red-400 text-red-700 rounded-lg animate-slideInAndFadeOut">
-      <p class="text-base font-bold text-dark-blue-200 !leading-none"><%= value %></p>
+      <p class="text-base font-bold text-dark-blue-200 !leading-none"><%= msg %></p>
     </div>
   <% end %>
 <% end %>
