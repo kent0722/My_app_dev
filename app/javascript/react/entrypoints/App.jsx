@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import { createRoot } from "react-dom/client";
 
 // AccountUserAiconコンポーネント
@@ -14,15 +14,67 @@ const AccountUserAicon = () => {
 
 // AccountDropMenuコンポーネント
 const AccountDropMenu = () => {
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);   
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="mx-6 p-2 hover:bg-gray-700 rounded-full">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-white">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-      </svg>
+    <div ref={menuRef}>
+      <div className="mx-6 p-3 hover:bg-gray-700 rounded-full cursor-pointer" onClick={toggleMenu}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+      {isOpen && (
+        <ul className="absolute text-center mt-2 w-30 bg-[#353539] rounded-lg">
+          <li className="px-4 py-2 hover:bg-gray-600 rounded-md">プロフィール</li>
+          <li className="px-4 py-2 hover:bg-gray-600 rounded-md">
+            <button type="button">Log out</button>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
+
+// const AccountDropMenu = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggleMenu = () => {
+//     setIsOpen(!isOpen);   
+//   };
+
+//   return (
+//     <div className="relative">
+//       <div className="mx-6 p-2 hover:bg-gray-700 rounded-full cursor-pointer" onClick={toggleMenu}>
+//         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-white">
+//           <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+//         </svg>
+//       </div>
+//       {isOpen && (
+//         <ul className="absolute -right-6 top-full mt-2 w-32 z-10 bg-[#353539] rounded-lg">
+//           <li className="block px-4 py-2 hover:bg-gray-600 rounded-lg">プロフィール</li>
+//           <li className="block px-4 py-2 hover:bg-gray-600 rounded-lg">ログアウト</li>
+//         </ul>
+//       )}
+//     </div>
+//   );
+// };
 
 // OtherDropMenuコンポーネント
 const OtherDropMenu = () => { 
