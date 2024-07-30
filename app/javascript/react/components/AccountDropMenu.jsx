@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DropDownMenu = () => {
+const AccountDropMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -8,7 +8,7 @@ const DropDownMenu = () => {
   };
 
   return (
-    <div>
+    <div className="bg-white">
       <button onClick={toggleMenu}>メニューを開く</button>
       {isOpen && (
         <ul>
@@ -21,4 +21,4 @@ const DropDownMenu = () => {
   );
 }
 
-export default DropDownMenu;
+export default AccountDropMenu;
