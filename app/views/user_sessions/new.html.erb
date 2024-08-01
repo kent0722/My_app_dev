@@ -12,10 +12,10 @@
       <%= form_with(url: login_path) do |f| %>
 
         <%= f.label :email %>
-        <%= f.text_field :email, class: 'block w-72 rounded-md mb-2', placeholder: 'メール' %>
+        <%= f.text_field :email, class: 'block w-72 rounded-md mb-2', placeholder: 'メール',  required: true %>
 
         <%= f.label :password %>
-        <%= f.password_field :password, class: 'block w-72 rounded-md mb-6', placeholder: 'パスワード' %>
+        <%= f.password_field :password, class: 'block w-72 rounded-md mb-6', placeholder: 'パスワード',  required: true %>
   
         <%= f.submit "ログイン", class: 'w-full h-12 mb-8 text-white bg-indigo-500 hover:bg-indigo-600 rounded-3xl' %>
 

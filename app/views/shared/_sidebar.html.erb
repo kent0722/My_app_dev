@@ -1,14 +1,15 @@
 <aside class="fixed top-24 flex flex-col w-60 rounded text-white overflow-hidden">
   <div class="w-full border-r-2 border-gray-500 h-[calc(100vh-110px)] justify-between">
+    <!-- ホーム -->
     <div class="flex items-center w-56 ml-2">
-      <a class="flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" href="#">
-          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round"  stroke-width="2"
-             d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <span class="ml-2 text-sm font-medium">ホーム</span>
-        </a>
+      <%= link_to posts_path, class: "flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" do %>
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+        <span class="ml-2 text-sm font-medium">ホーム</span>
+      <% end %>
     </div>
+    <!-- 検索 -->
     <div class="flex items-center w-56 ml-2">
       <a class="flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -17,6 +18,7 @@
           <span class="ml-2 text-sm font-medium">検索</span>
         </a>
     </div>
+    <!-- メッセージ -->
     <div class="flex items-center w-56 ml-2">
       <a class="flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -25,6 +27,7 @@
           <span class="ml-2 text-sm font-medium">メッセージ</span>
         </a>
     </div>
+    <!-- お知らせ -->
     <div class="flex items-center w-56 ml-2">
       <a class="flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -33,16 +36,17 @@
           <span class="ml-2 text-sm font-medium">お知らせ</span>
         </a>
     </div>
-    <div class="flex items-center w-56 ml-2">
-      <a class="flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
-          <span class="ml-2 text-sm font-medium">投稿</span>
-        </a>
+     <!-- 投稿 -->
+    <div class="flex items-center w-56 ml-2"> 
+      <%= link_to new_post_path, class: "flex items-center w-full h-16 px-3 mt-2 hover:bg-gray-700 rounded-lg" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span class="ml-2 text-sm font-medium">投稿</span>
+      <% end %>
     </div>
-
-    <div id="OtherDrop"></div>   
+    <!-- その他 -->
+    <div id="OtherDrop"></div>
     <%# <div id="dropdown2" class="flex justify-center w-56 z-10 hidden bg-[#353539]  divide-y divide-gray-100 rounded-lg">
         <ul class="w-52 text-sm text-white">
           <li>

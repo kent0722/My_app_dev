@@ -1,2 +1,102 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="ml-96 mt-36 w-8/12 bg-gray-100 rounded-xl animate-fadeIn"> 
+  <div class="bg-gray-100 rounded-xl">
+    <div class="w-full mx-auto px-4"> 
+      <div class="mb-8 mx-auto text-center">
+        <h1 class="border-b-2 border-gray-500/30 py-8 text-2xl font-semibold">新規投稿</h1>
+      </div>
+      <%= form_with(model: @post) do |f| %>
+        <div class="grid grid-cols-2">
+          <div>
+            <!-- Brand / Category -->
+            <div class="grid md:grid-cols-2 mt-16">
+              <div class="relative z-0 w-full mb-5 group">
+                <%= f.text_field :brand, list: "brand-list", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: "", required: true %>
+                  <datalist id="brand-list">
+                    <% Post.brands.keys.each do |brand| %>
+                      <option value="<%= brand %>">
+                    <% end %>
+                  </datalist>
+                <label for="brand" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ブランド名:</label>
+              </div>
+              
+              <div class="relative z-0 w-full mb-5 group">
+                <%= f.text_field :category, list: "category-list", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: true %>
+                  <datalist id="category-list">
+                    <% Post.categories.keys.each do |category| %>
+                      <option value="<%= category %>">
+                    <% end %>
+                  </datalist>
+                <label for="category" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">楽器のカテゴリー:</label>
+              </div>
+            </div>
+
+            <!-- Model -->
+            <div class="relative z-0 w-full mb-5 group">
+              <%= f.text_field :instrument_model, id: "instrument_model", max: 25, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+              <label for="instrument_model" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">楽器のモデル:</label>
+              <% @post.errors.where(:instrument_model).each do |instrument_model| %>
+                <p class="text-red-500"><%= instrument_model.full_message %></p>
+              <% end %>
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const input = document.getElementById('instrument_model');
+                
+                input.addEventListener('focus', function() {
+                  input.setAttribute('placeholder', "例: VintageModel");
+                });
+
+                input.addEventListener('blur', function() {
+                  input.setAttribute('placeholder', ' ');
+                });
+              });
+            </script>
+                      
+            <!-- Year / Tags -->
+            <div class="grid md:grid-cols-2">
+              <div class="relative z-0 w-full mb-5 group">
+                <%= f.number_field :production_year, list: "year-list", in: 1950..2014, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+                 <datalist id="year-list">
+                    <% Post.production_years.keys.each do |year| %>
+                      <option value="<%= year %>">
+                    <% end %>
+                  </datalist>
+                <label for="production_year" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">製造年月:</label>
+              </div>
+
+              <div class="relative z-0 w-full mb-5 group">
+                 <%# f.text_field :tags, id: "tags", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " "  %>
+                <label for="tags" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">タグ:</label>
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="relative z-0 w-full mb-5 group">
+              <%= f.text_area :body, id: "body", rows: 10, class: "block px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-500/70 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+              <label for="body" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">本文:</label>
+              <% @post.errors.where(:body).each do |body| %>
+                <p class="text-red-500"><%= body.full_message %></p>
+              <% end %>
+            </div>
+          </div>
+          <div>
+            <!-- File Upload -->
+          <div class="my-16 mx-36 mb-5 group">
+            <%= f.file_field :file, class: "hidden", id: "file" %>
+            <label for="file" class=" flex items-center justify-center cursor-pointer px-4 py-4 text-blue-600 border border-blue-600 hover:bg-blue-100 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <p class="p-2">ファイルを選択</p>
+            </label>
+          </div>
+            <!-- Submit Button -->
+            <div class="flex justify-end mt-64 mr-6">
+              <%= f.submit "投稿する", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-8 py-5 text-center" %>
+            </div>
+          </div>         
+        </div>
+      <% end %>
+    </div> 
+  </div>
+</div>

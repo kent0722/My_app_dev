@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_082831) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.string "brand", null: false
-    t.string "category", null: false
+    t.integer "brand", null: false
+    t.integer "category", null: false
     t.integer "production_year"
     t.string "instrument_model"
     t.string "image"
