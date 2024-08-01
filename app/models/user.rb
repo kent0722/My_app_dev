@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :posts, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

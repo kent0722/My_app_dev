@@ -1,25 +1,33 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import LoginModal from "../components/LoginModal";
-import SignModal from "../components/SignModal";
-import DropDownMenu from "../components/DropMenu";
+import { AccountDropMenu } from "../components/AccountDropMenu";
+import { AccountUserAicon } from "../components/AccountUserAicon";
+import { OtherDropMenu } from "../components/OtherDropMenu";
 
 
 
-const loginContainer = document.getElementById("LoginModal");
-if (loginContainer) {
-  const loginRoot = createRoot(loginContainer);
-  loginRoot.render(<LoginModal />);
-}
 
-const signContainer = document.getElementById("SignModal"); 
-if (signContainer) {
-  const signRoot = createRoot(signContainer);
-  signRoot.render(<SignModal />);
-}
 
-const dropContainer = document.getElementById("DropMenu"); 
-if (dropContainer) {
-  const dropMenuRoot = createRoot(dropContainer);
-  dropMenuRoot.render(<DropDownMenu />)
-}
+// DOM要素の取得とレンダリング
+document.addEventListener('DOMContentLoaded', () => {
+  const renderReactComponents = () => {
+    const userAiconContainer = document.getElementById("UserAicon");
+    if (userAiconContainer) {
+      const userAiconRoot = createRoot(userAiconContainer);
+      userAiconRoot.render(<AccountUserAicon />);
+    }
+
+    const accountDropContainer = document.getElementById("AccountDrop");
+    if (accountDropContainer) {
+      const accountDropRoot = createRoot(accountDropContainer);
+      accountDropRoot.render(<AccountDropMenu />);
+    }
+
+    const otherDropContainer = document.getElementById("OtherDrop");
+    if (otherDropContainer) {
+      const otherDropRoot = createRoot(otherDropContainer);
+      otherDropRoot.render(<OtherDropMenu />);
+    }
+  };
+  document.addEventListener('turbo:load', renderReactComponents);
+});

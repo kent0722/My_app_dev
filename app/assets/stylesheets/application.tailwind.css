@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* background-color: #171718; */
+body.logged-in {
+  background-color: #171718;
+}
+
+body.logged-out {
   background-image: url("haikei3.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -15,3 +18,4 @@ body {
 .top-text {
   text-shadow: 4px 3px 5px black;
 }
+

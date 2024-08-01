@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to root_path, flash: { notice: '新規作成完了しました' }
+      redirect_to posts_path, flash: { notice: '新規作成完了しました' }
     else
       render :new, status: :unprocessable_entity
     end

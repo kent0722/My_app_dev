@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: 投稿
     attributes:
       user:
         name: ユーザー名
@@ -11,3 +12,5 @@ ja:
       user_sessions:
         email: メールアドレス
         password: パスワード
+      post:
+        instrument_model: 楽器のモデル
