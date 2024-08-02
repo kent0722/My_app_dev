@@ -13,4 +13,5 @@ ja:
         email: メールアドレス
         password: パスワード
       post:
+        category: カテゴリー
         instrument_model: 楽器のモデル

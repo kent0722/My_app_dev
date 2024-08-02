@@ -3,13 +3,8 @@
     <% @posts.each do |post| %>
       <div class="m-3 max-w-sm bg-white rounded-2xl transition-transform transform hover:scale-105">
         <div class="flex justify-center pt-3 px-3">
-          <div class=" pt-3 pl-2 w-24">
-            <%= image_tag 'user_sample.jpg', class: "border border-black/80 rounded-full ml-2", width: 50, height: 50  %>
-            <%# <div class="bg-black text-white rounded-full mr-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-14">
-                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
-              </svg>
-            </div> %>
+          <div class="pt-3 pl-2 w-24">
+            <%= image_tag 'defautUser.jpg', class: "border border-black/80 rounded-full", width: 50, height: 50  %>
             <div class="text-sm font-semibold pr-2"><%= current_user.name %></div>
           </div>
           <div class="flex flex-col font-semibold italic space-x-2">
@@ -17,11 +12,15 @@
               <%= post.brand %>
               <span class="pl-2"><%= post.category %></span>
             </div>
-            <div class="text-lg mr-2">
-              <%= post.instrument_model %>     
-            </div>
+            <% if post.instrument_model.present? %>
+              <div class="text-lg mr-2"><%= post.instrument_model %></div>
+            <% else %>
+               <div class="text-lg mr-2">&nbsp;</div>
+            <% end %>
             <% if post.production_year.present? %>
               <div class="text-base text-right pr-6 mb-1"><%= post.production_year %>年製</div>
+            <% else %>
+              <div class="text-base text-right pr-6 mb-1">&nbsp;</div>
             <% end %>
           </div>
         </div>
@@ -29,7 +28,7 @@
           <span class="text-sm mr-4"><%= time_ago_in_words(post.created_at) %>前</span>
            #ギター
         </div>
-        <%= image_tag 'guitar_sample.jpg', class: "object-cover h-72 w-96 rounded-b-2xl" %>
+        <%= image_tag 'default.jpg', class: "object-cover h-72 w-96 rounded-b-2xl" %>
       </div>
     <% end %>
   </div>
