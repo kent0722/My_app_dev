@@ -5,8 +5,6 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.string :category, null: false
       t.integer :production_year
       t.string :instrument_model
-      t.string :image
-      t.string :video
       t.text :body, null: false
       t.references :user, null: false, foreign_key: true
 

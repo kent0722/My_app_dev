@@ -29,6 +29,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:brand, :category, :production_year, :instrument_model, :image, :video, :body,)
+    params.require(:post).permit(:brand, :category, :production_year, :instrument_model, :body, :image, :video)
   end
 end

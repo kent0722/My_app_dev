@@ -4,19 +4,25 @@
       <div class="m-3 max-w-sm bg-white rounded-2xl transition-transform transform hover:scale-105">
         <div class="flex justify-center pt-3 px-3">
           <div class="pt-3 pl-2 w-24">
+            <!-- アイコン画像 -->
             <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full", width: 50, height: 50  %>
+            <!-- ユーザー名 -->
             <div class="text-sm font-semibold pr-2"><%= current_user.name %></div>
           </div>
           <div class="flex flex-col font-semibold italic space-x-2">
             <div class="flex flex-wrap text-xl w-72">
+              <!-- ブランド・楽器の種類 -->
               <%= post.brand %>
               <span class="pl-2"><%= post.category %></span>
             </div>
+            <!-- 楽器のモデル -->
             <% if post.instrument_model.present? %>
               <div class="text-lg mr-2"><%= post.instrument_model %></div>
             <% else %>
                <div class="text-lg mr-2">&nbsp;</div>
             <% end %>
+
+            <!-- 製造年月 -->
             <% if post.production_year.present? %>
               <div class="text-base text-right pr-6 mb-1"><%= post.production_year %>年製</div>
             <% else %>
@@ -28,7 +34,12 @@
           <span class="text-sm mr-4"><%= time_ago_in_words(post.created_at) %>前</span>
            #ギター
         </div>
-        <%= image_tag 'default.jpg', class: "object-cover h-72 w-96 rounded-b-2xl" %>
+        <!-- メイン画像 -->
+        <% if post.image.present? %>
+          <%= image_tag post.image, class: "object-cover h-72 w-96 border-t-2 border-black rounded-b-2xl" %>
+        <% else %>
+          <%= image_tag 'default.jpg', class: "object-cover h-72 w-96 border-t-2 border-black rounded-b-2xl" %>
+        <% end %>
       </div>
     <% end %>
   </div>
