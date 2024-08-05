@@ -8,12 +8,12 @@ local:
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 amazon:
-amazon:
   service: S3
-  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>  
-  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %> #環境変数の設定はvol3で行います。
-  region: app-gearn-net 
-  bucket: <%= ENV['AWS_BUCKET_NAME'] %> 
+  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
+  region: us-east-1
+  bucket: app-gear-net
+  public: true
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
