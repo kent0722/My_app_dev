@@ -1,2 +1,59 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="pt-36 text-gray-600 bg-black/30 z-50 h-screen w-screen backdrop-blur-sm animate-fadeIn">
+  <div class="fixed top-0 right-0 mt-20 mr-16">
+    <%= link_to posts_path, class: "w-24" do %>
+      <div class="text-gray-500 bg-transparent hover:text-gray-100 rounded-lg w-8 h-8 inline-flex justify-center items-center">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+      </div>
+    <% end %>
+  </div>
+  <div class="flex justify-center rounded-2xl overflow-hidden">
+    <div class="w-full max-w-lg bg-white rounded-2xl cursor-pointer"> <!-- max-w-sm から max-w-lg へ変更 -->
+      <div class="border border-red-500 flex justify-center"> <!-- パディングを大きく -->
+        <div class="border border-red-500 pt-5 pl-6 w-44"> <!-- パディングと幅を大きく -->
+          <!-- アイコン画像 -->
+          <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full", width: 70, height: 70 %> <!-- 画像サイズを大きく -->
+          <!-- ユーザー名 -->
+          <div class="text-lg font-semibold pt-1 pr-2"><%= current_user.name %></div> <!-- テキストサイズを大きく -->
+        </div>
+        <div class="border border-red-500 flex flex-col font-semibold italic space-y-4"> <!-- space-x-2 から space-y-4 へ変更 -->
+          <div class="border border-red-500 flex flex-wrap text-3xl w-80 pt-2"> <!-- 幅を大きく -->
+            <!-- ブランド・楽器の種類 -->
+            <%= @post.brand %>
+            <span class="pl-2"><%= @post.category %></span>
+          </div>
+          <!-- 楽器のモデル -->
+          <% if @post.instrument_model.present? %>
+            <div class="text-xl mr-2"><%= @post.instrument_model %></div> <!-- テキストサイズを大きく -->
+          <% else %>
+            <div class="text-xl mr-2">&nbsp;</div>
+          <% end %>
+          <!-- 製造年月 -->
+          <% if @post.production_year.present? %>
+            <div class="text-xl text-right pr-6 mb-1"><%= @post.production_year %>年製</div>
+          <% else %>
+            <div class="text-xl text-right pr-6 mb-1">&nbsp;</div>
+          <% end %>
+        </div>
+        <%= link_to posts_path, class: "border border-red-500 w-24 pt-2 pl-8" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+          </svg>
+        <% end %>
+      </div>
+      <div class="text-base text-right mr-4 -mt-2"> 
+        <span class="text-base mr-4">test</span>
+        #ギター
+      </div>
+      <!-- メイン画像 -->
+      <%= image_tag @post.image, class: "object-cover h-96 w-full border-y-2 border-black" %> 
+      <div class="h-48">
+        <div class="border border-red-500 grid grid-col-2">
+          test
+          
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
