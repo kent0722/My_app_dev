@@ -39,7 +39,11 @@
           #ギター
         </div>
         <!-- メイン画像 -->
-        <%= image_tag @post.image, class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %>
+        <% if @post.image.present? %>
+          <%= image_tag @post.image, class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %>
+        <% else %>
+          <%= image_tag 'dafault.jpg', class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %> 
+        <% end %>
         <div class="h-48 cursor-default">
           <div class="grid grid-cols-2 h-12">
             <div class="flex items-center pl-4 text-2xl italic">
