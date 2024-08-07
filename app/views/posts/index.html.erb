@@ -1,5 +1,5 @@
 <div class="fixed top-20 left-80 z-0">
-  <div class="grid grid-cols-3 gap-2 rounded-2xl overflow-hidden">
+  <div class="relative grid grid-cols-3 gap-2 rounded-2xl overflow-hidden">
     <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "m-3 max-w-sm bg-white rounded-2xl transition-transform transform hover:scale-105 cursor-pointer" do %>
         <div class="flex justify-center pt-3 px-3">
