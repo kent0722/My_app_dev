@@ -42,7 +42,7 @@
         <% if @post.image.present? %>
           <%= image_tag @post.image, class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %>
         <% else %>
-          <%= image_tag 'dafault.jpg', class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %> 
+          <%= image_tag 'default.jpg', class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %> 
         <% end %>
         <div class="h-48 cursor-default">
           <div class="grid grid-cols-2 h-12">
