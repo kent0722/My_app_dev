@@ -1,7 +1,7 @@
 <div class="fixed top-20 left-80 z-0">
   <div class="grid grid-cols-3 gap-2 rounded-2xl overflow-hidden">
     <% @posts.each do |post| %>
-      <div class="m-3 max-w-sm bg-white rounded-2xl transition-transform transform hover:scale-105">
+      <%= link_to post_path(post), class: "m-3 max-w-sm bg-white rounded-2xl transition-transform transform hover:scale-105 cursor-pointer" do %>
         <div class="flex justify-center pt-3 px-3">
           <div class="pt-3 pl-2 w-24">
             <!-- アイコン画像 -->
@@ -40,7 +40,7 @@
         <% else %>
           <%= image_tag 'default.jpg', class: "object-cover h-72 w-96 border-t-2 border-black rounded-b-2xl" %>
         <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

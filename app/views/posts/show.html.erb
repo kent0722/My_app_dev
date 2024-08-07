@@ -1,2 +1,119 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="pt-16 bg-black/30 z-50 h-screen w-screen backdrop-blur-sm animate-fadeIn">
+  <div class="fixed top-0 right-0 mt-16 mr-16">
+    <%= link_to posts_path, class: "w-24" do %>
+      <div class="text-gray-500 bg-transparent hover:text-gray-100 rounded-lg w-8 h-8 inline-flex justify-center items-center">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+      </div>
+    <% end %>
+  </div>
+    <div class="flex justify-center overflow-hidden">
+      <div class="px-2 w-full max-w-xl bg-white rounded-s-2xl">
+        <div class="flex justify-center p-2 cursor-default">
+          <div class="pt-4 pl-4">
+            <!-- アイコン画像 -->
+            <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full cursor-pointer", width: 80, height: 80 %>
+            <!-- ユーザー名 -->
+            <div class="text-lg font-semibold pt-1 pr-2"><%= current_user.name %></div>
+          </div>
+          <div class="flex flex-col w-11/12 ml-4 font-semibold italic space-y-2">
+            <div class="flex flex-wrap text-3xl w-full pt-2">
+              <!-- ブランド・楽器の種類 -->
+              <%= @post.brand %>
+              <span class="pl-2"><%= @post.category %></span>
+            </div>
+            <!-- 楽器のモデル -->
+            <% if @post.instrument_model.present? %>
+              <div class="text-xl pl-2"><%= @post.instrument_model %></div>
+            <% end %>
+            <!-- 製造年月 -->
+            <% if @post.production_year.present? %>
+              <div class="text-xl text-right pr-6 mb-1"><%= @post.production_year %>年製</div>
+            <% else %>
+              <div class="text-xl text-right pr-6 mb-1">&nbsp;</div>
+            <% end %>
+          </div>  
+        </div>
+        <div class="text-lg text-right mr-4 -mt-4">
+          #ギター
+        </div>
+        <!-- メイン画像 -->
+        <%= image_tag @post.image, class: "object-cover h-[32rem] w-full border-2 border-gray-700 rounded-xl" %>
+        <div class="h-48 cursor-default">
+          <div class="grid grid-cols-2 h-12">
+            <div class="flex items-center pl-4 text-2xl italic">
+              <%= l @post.created_at, format: :custom_default %>
+            </div>
+            <div class="flex items-center">
+              <%= link_to "フォローする", '#', class: "px-3 py-2 ml-24 bg-blue-500 hover:bg-blue-700 text-white text-sm rounded-full" %>
+              <span class="pl-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="border-2 border-gray-500/30 bg-gray-200 w-11/12 mx-auto h-32 rounded-3xl">
+              <div class="pt-2 pl-5">
+                <%= simple_format(@post.body) %>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!-- ここからコメントフォーム -->
+      <div class="grid grid-rows border-l border-gray-700/2 bg-white w-3/12 rounded-e-lg">
+        <div class="border-b border-gray-700/20 h-14">
+          <div class="fiexd top-0 flex justify-end h-12">
+            <div class="pt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+              </svg>
+            </div>
+          </div> 
+        </div>
+        <!-- コメント一覧 -->
+        <div class="custom-scrollbar ml-2 fixed top-32 h-3/4 overflow-auto">
+          <div class="h-16">
+
+            <!-- １件目のコメント -->
+            <div class="flex items-center  h-full py-12">
+              <div>
+                <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full mr-2 cursor-pointer", width: 40, height: 40 %>
+              </div>
+              <div class="text-sm font-semibold">
+                test_user
+                <span class="font-normal ml-2"><%= time_ago_in_words(@post.created_at) %>前</span>
+                <div class="font-normal break-words w-80">test</div>
+              </div>
+            </div>
+            <!-- 2件目のコメント -->
+            <div class="flex items-center  h-full py-12">
+              <div>
+                <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full mr-2 cursor-pointer", width: 40, height: 40 %>
+              </div>
+              <div class="text-sm font-semibold">
+                test_user
+                <span class="font-normal ml-2"><%= time_ago_in_words(@post.created_at) %>前</span>
+                <div class="font-normal break-words w-80">test</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- ここからコメント入力フォーム -->
+        <div class="fixed bottom-4 border-t border-gray-700/20 p-4 w-3/12">
+          <div class="flex items-cene mb-4 group">
+              <input type="comment" name="comment" id="comment" class="py-2.5 px-0 w-80 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-700 peer" placeholder="投稿する"/>
+              <button class="ml-2 text-gray-400 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

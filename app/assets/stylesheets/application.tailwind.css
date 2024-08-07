@@ -19,3 +19,6 @@ body.logged-out {
   text-shadow: 4px 3px 5px black;
 }
 
+.custom-scrollbar::-webkit-scrollbar{
+  display: none;
+}
