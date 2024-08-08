@@ -10,12 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const imagePreview = document.getElementById('image-preview');
 
     //brand 入力制限
-    brandInput.addEventListener('input', () => {
-      const brandValue = brandInput.value;
-      if (!datalistOptions.includes(brandValue)) {
-        brandInput.value = '';
-      }
-    });
+    if(brandInput){
+      brandInput.addEventListener('input', () => {
+        const brandValue = brandInput.value;
+        if (!datalistOptions.includes(brandValue)) {
+          brandInput.value = '';
+        }
+      });
+    }
     //category 入力補助
     if (categoryInput) {
       categoryInput.addEventListener('focus', () => { 
@@ -35,21 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
     //imageアップロード
-    fileInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (e) => {
-          imagePreview.src = e.target.result;
-          imagePreview.classList.remove('hidden');
-          placeholderText.classList.add('hidden');
+    if(fileInput){
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = (e) => {
+            imagePreview.src = e.target.result;
+            imagePreview.classList.remove('hidden');
+            placeholderText.classList.add('hidden');
+          }
+        } else {
+          imagePreview.classList.add('hidden');
+          placeholderText.classList.remove('hidden');
         }
-      } else {
-        imagePreview.classList.add('hidden');
-        placeholderText.classList.remove('hidden');
-      }
-    });
+      });
+    } 
   }
   document.addEventListener('turbo:load', renderComponents);
 });

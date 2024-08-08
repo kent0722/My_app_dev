@@ -4,24 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownMenu = document.getElementById('dropdownMenu');
     const showDropdownButton = document.getElementById('showDropdownButton');
     const showDropdownMenu = document.getElementById('showDropdownMenu');
+    const sideDropdownButton = document.getElementById('sideDropdownButton');
+    const sideDropdownMenu = document.getElementById('sideDropdownMenu');
+
     //header
-    dropdownButton.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('hidden');
-    });
-    document.addEventListener('click', (e) => {
-      if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.add('hidden');
-      }
-    });
+    if (dropdownButton){
+      dropdownButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.add('hidden');
+        }
+      });
+    }
     //show
-    showDropdownButton.addEventListener('click', () => {
-      showDropdownMenu.classList.toggle('hidden');
-    });
-    document.addEventListener('click', (e) => {
-      if (!showDropdownButton.contains(e.target) && !showDropdownMenu.contains(e.target)) {
-        showDropdownMenu.classList.add('hidden');
-      }
-    });
+    if (showDropdownButton){
+      showDropdownButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showDropdownMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!showDropdownButton.contains(e.target) && !showDropdownMenu.contains(e.target)) {
+          showDropdownMenu.classList.add('hidden');
+        }
+      });
+    }
+    // side
+    if (sideDropdownButton){
+      sideDropdownButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        sideDropdownMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!sideDropdownButton.contains(e.target) && !sideDropdownMenu.contains(e.target)) {
+          sideDropdownMenu.classList.add('hidden');
+        }
+      });
+    }
   };
   document.addEventListener('turbo:load', renderComponents);
 });
