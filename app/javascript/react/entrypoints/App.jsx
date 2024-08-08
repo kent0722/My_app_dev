@@ -1,26 +1,26 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { AccountDropMenu } from "../components/AccountDropMenu";
-import { AccountUserAicon } from "../components/AccountUserAicon";
-import { OtherDropMenu } from "../components/OtherDropMenu";
 
 
+const EditModal = () => {
+  const testClick = () => {
+    return alert('test');
+  }
 
+  return (
+    <>
+      <button onClick={testClick} className="block px-4 py-2 w-28 hover:bg-gray-600 rounded-lg">test</button>
+    </>
+  );
+};
 
-
-// DOM要素の取得とレンダリング
 document.addEventListener('DOMContentLoaded', () => {
   const renderReactComponents = () => {
-    const userAiconContainer = document.getElementById("UserAicon");
-    if (userAiconContainer) {
-      const userAiconRoot = createRoot(userAiconContainer);
-      userAiconRoot.render(<AccountUserAicon />);
-    }
 
-    const accountDropContainer = document.getElementById("AccountDrop");
-    if (accountDropContainer) {
-      const accountDropRoot = createRoot(accountDropContainer);
-      accountDropRoot.render(<AccountDropMenu />);
+    const editModalContainer = document.getElementById('editModal');
+    if (editModalContainer) {
+      const editModalRoot = createRoot(editModalContainer);
+      editModalRoot.render(<EditModal />);
     }
 
     const otherDropContainer = document.getElementById("OtherDrop");
