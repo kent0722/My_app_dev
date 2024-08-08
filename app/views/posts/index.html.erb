@@ -5,11 +5,11 @@
         <div class="flex justify-center pt-3 px-3">
           <div class="pt-3 pl-2 w-24">
             <!-- アイコン画像 -->
-            <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full", width: 50, height: 50  %>
+            <%= image_tag 'defaultUser.jpg', class: "border border-black/80 rounded-full min-w-12", width: 50, height: 50  %>
             <!-- ユーザー名 -->
             <div class="text-sm font-semibold pr-2"><%= current_user.name %></div>
           </div>
-          <div class="flex flex-col font-semibold  italic space-x-2">
+          <div class="flex flex-col font-semibold min-w-48 w-96 italic space-x-2">
             <div class="flex flex-wrap text-xl w-72">
               <!-- ブランド・楽器の種類 -->
               <%= post.brand %>
@@ -17,7 +17,7 @@
             </div>
             <!-- 楽器のモデル -->
             <% if post.instrument_model.present? %>
-              <div class="text-lg mr-2"><%= post.instrument_model %></div>
+              <div class="text-lg mr-2 flex-wrap "><%= post.instrument_model %></div>
             <% else %>
                <div class="text-lg mr-2">&nbsp;</div>
             <% end %>
